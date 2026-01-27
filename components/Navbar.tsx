@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Home, Info, Briefcase, BookOpen, Calendar, Mail } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
+import logo from '@/assets/image/logo.png'
 import { cn } from '@/lib/utils';
 
 const iconMap = {
@@ -19,20 +21,36 @@ const iconMap = {
 export function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gold/20 hidden md:block">
+      <nav 
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 hidden md:block",
+          scrolled 
+            ? "bg-black/80 backdrop-blur-md border-b border-gold/20 py-0" 
+            : "bg-transparent border-transparent py-4"
+        )}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 relative">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M50 10 L70 40 L50 35 L30 40 Z" fill="#CDAA5F" />
-                  <path d="M50 35 L50 90" stroke="#CDAA5F" strokeWidth="3" strokeLinecap="round" />
-                  <circle cx="50" cy="90" r="3" fill="#CDAA5F" />
-                </svg>
-              </div>
+          <div className="flex items-center justify-between h-20 bottom-8">
+            <Link href="/" className="flex items-center group">
+              <Image 
+                src={logo} 
+                alt="logo" 
+                className="h-[150px] w-[150px] object-contain top-2" 
+                priority 
+
+              />
               <div>
                 <h1 className="text-2xl font-serif font-bold text-white group-hover:text-gold transition-colors">
                   {SITE_CONFIG.name}

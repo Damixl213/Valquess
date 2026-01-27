@@ -2,14 +2,24 @@ export const SITE_CONFIG = {
   name: 'ValQuess',
   tagline: 'your journey, our story',
   description: 'Premium branding consultancy delivering clarity through sophisticated design and strategy',
-  copyright: '©2025, BraveArt',
+  copyright: '©2025, VALQUESS',
 } as const;
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/booking', label: 'Booking' },
+  { href: '/contact', label: 'Contact' },
+] as const;
+export const Quick_link = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/projects', label: 'Projects' },
+] as const;
+
+export const Service_link = [
+ { href: '/about', label: 'About Us' },
   { href: '/booking', label: 'Booking' },
   { href: '/contact', label: 'Contact' },
 ] as const;

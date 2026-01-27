@@ -67,15 +67,15 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="overflow-hidden">
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <SectionReveal>
-            <h1 className="text-5xl sm:text-6xl font-serif font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-6">
               Our <span className="text-gold">Projects</span>
             </h1>
           </SectionReveal>
           <SectionReveal delay={75}>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-300 leading-relaxed">
               A showcase of transformative brand experiences we've crafted for visionary clients across
               diverse industries
             </p>
@@ -83,7 +83,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -93,10 +93,10 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/20">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black/20">
         <div className="max-w-4xl mx-auto text-center">
           <SectionReveal>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-6">
               Every Project Tells a Story
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">

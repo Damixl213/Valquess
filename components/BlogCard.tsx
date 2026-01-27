@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
 import { SectionReveal } from './SectionReveal';
 import { Calendar, User } from 'lucide-react';
 
@@ -11,6 +12,7 @@ interface BlogCardProps {
   author: string;
   date: string;
   slug: string;
+  image?: string | StaticImageData;
   delay?: number;
 }
 
@@ -20,18 +22,28 @@ export function BlogCard({
   category,
   author,
   date,
+  image,
   slug,
-  delay = 0,
+  delay = 1,
 }: BlogCardProps) {
   return (
     <SectionReveal delay={delay}>
       <Link href={`/blog/${slug}`} className="block group">
         <article className="bg-black/40 backdrop-blur-sm border border-gold/30 rounded-lg overflow-hidden hover:border-gold hover:-translate-y-1 transition-all duration-300 h-full">
           <div className="relative h-48 bg-gradient-to-br from-purple-900 to-primary-purple overflow-hidden">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl font-serif text-white/10">{title.charAt(0)}</div>
-            </div>
-            <div className="absolute top-4 left-4 bg-gold text-black px-3 py-1 rounded-full text-xs font-semibold">
+            {image ? (
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-6xl font-serif text-white/10">{title.charAt(0)}</div>
+              </div>
+            )}
+            <div className="absolute top-4 left-4 bg-gold text-black px-3 py-1 rounded-full text-xs font-semibold z-10">
               {category}
             </div>
           </div>

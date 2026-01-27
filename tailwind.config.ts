@@ -134,8 +134,32 @@ const config: Config = {
         'gold': '0 0 10px rgba(205, 170, 95, 0.4)',
         'gold-lg': '0 0 20px rgba(205, 170, 95, 0.6)',
       },
+      perspective: {
+        '1000': '1000px',
+        '2000': '2000px',
+      },
+      rotate: {
+        'y-6': 'rotateY(6deg)',
+        'y-12': 'rotateY(12deg)',
+      },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function({ addUtilities }: any) {
+      const newUtilities = {
+        '.rotate-y-6': {
+          transform: 'rotateY(6deg)',
+        },
+        '.rotate-y-12': {
+          transform: 'rotateY(12deg)',
+        },
+        '.transform-gpu': {
+          transform: 'translate3d(0, 0, 0)',
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
 export default config;
