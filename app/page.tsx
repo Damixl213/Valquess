@@ -15,58 +15,54 @@ export default async function Home() {
     <div className="overflow-hidden">
       {/* Inline preloader and reveal wrapper */}
       <PageIntro durationMs={5000}>
-            <section className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8">
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-purple/20 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-              </div>
+        <section className="relative min-h-[80vh] flex items-center px-4 sm:px-6 lg:px-16 bg-[#0A0A1E] -mt-16 pt-24">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-32 -left-32 w-72 h-72 bg-[#3A2D5E] rounded-full blur-3xl opacity-80" />
+            <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#3A2D5E] rounded-full blur-3xl opacity-70" />
+          </div>
 
-              <div className="relative z-10 text-center max-w-5xl mx-auto">
-                <SectionReveal delay={75}>
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight flex flex-col items-center gap-4">
-                    <span>Welcome to Valquess</span>
-                    <div className="relative h-24 w-64 sm:h-32 sm:w-80 lg:h-40 lg:w-96">
-                      <Image 
-                        src={logo} 
-                        alt={SITE_CONFIG.name}
-                        fill
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                  </h1>
-                </SectionReveal>
-
-                <SectionReveal delay={150}>
-                  <p className="text-lg sm:text-xl text-gold/90 font-serif italic mb-4">
+          <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-center justify-between gap-12">
+            <SectionReveal delay={75}>
+              <div className="text-left max-w-xl">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
+                  <span className="block">Valquess</span>
+                  <span className="mt-3 block text-lg sm:text-xl lg:text-2xl text-gold font-normal">
                     {SITE_CONFIG.tagline}
-                  </p>
-                </SectionReveal>
-
-                <SectionReveal delay={225}>
-                  <p className="text-base text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                    {SITE_CONFIG.description}
-                  </p>
-                </SectionReveal>
-
-                <SectionReveal delay={300}>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <Link href="/booking">
-                      <VButton variant="primary" className="flex items-center space-x-2">
-                        <span>Start Your Journey</span>
-                        <ArrowRight className="w-5 h-5" />
-                      </VButton>
-                    </Link>
-                    <Link href="/projects">
-                      <VButton variant="outline" className="flex items-center space-x-2">
-                        <span>View Our Work</span>
-                        <Sparkles className="w-5 h-5" />
-                      </VButton>
-                    </Link>
-                  </div>
-                </SectionReveal>
+                  </span>
+                </h1>
+                <p className="mt-6 text-base sm:text-lg text-gray-300 leading-relaxed">
+                  {SITE_CONFIG.description}
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <Link href="/booking">
+                    <VButton variant="primary" className="flex items-center space-x-2">
+                      <span>Start Your Journey</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </VButton>
+                  </Link>
+                  <Link href="/projects">
+                    <VButton variant="outline" className="flex items-center space-x-2">
+                      <span>View Our Work</span>
+                      <Sparkles className="w-5 h-5" />
+                    </VButton>
+                  </Link>
+                </div>
               </div>
-            </section>
+            </SectionReveal>
+
+            <SectionReveal delay={150}>
+              <div className="relative w-56 h-40 sm:w-72 sm:h-52 lg:w-[420px] lg:h-[300px]">
+                <Image
+                  src={logo}
+                  alt={SITE_CONFIG.name}
+                  fill
+                  className="object-contain drop-shadow-[0_0_40px_rgba(0,0,0,0.7)]"
+                  priority
+                />
+              </div>
+            </SectionReveal>
+          </div>
+        </section>
       </PageIntro>
       {/* Removed duplicate hero section to avoid double rendering */}
 
