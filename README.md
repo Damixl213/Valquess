@@ -181,8 +181,11 @@ Simply run `npm run build` and deploy the `out` directory.
 
 ## License
 
-©2025, BraveArt. All rights reserved.
+©2025, valquess. All rights reserved.
 
 ## Support
 
 For questions or support, contact: hello@valquess.com
+
+## figma link 
+https://www.figma.com/design/VZfXpintcl7iy2DUeveStC/Valquees-Project?node-id=280-2&t=Pz56bWkRkcsW40FB-1
