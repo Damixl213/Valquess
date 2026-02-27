@@ -35,7 +35,8 @@
   }
 
   body {
-    @apply bg-gradient-to-b from-purple-950 via-black to-purple-900 text-white;
+    background-color: #0A0A1E;
+    @apply text-white;
     min-height: 100vh;
   }
 

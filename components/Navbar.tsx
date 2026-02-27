@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Home, Info, Briefcase, BookOpen, Calendar, Mail } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG } from '@/lib/constants';
-import logo from '@/assets/image/logo.png';
+import logo from '@/assets/image/ValQuess-logo.svg';
 import { cn } from '@/lib/utils';
 
 const iconMap = {
@@ -47,12 +47,12 @@ export function Navbar() {
                 className="h-12 w-auto object-contain"
                 priority
               />
-              <div className="leading-tight">
+              {/* <div className="leading-tight">
                 <h1 className="text-xl font-serif font-bold text-white">
                   {SITE_CONFIG.name}
                 </h1>
                 <p className="text-xs text-gold/80">{SITE_CONFIG.tagline}</p>
-              </div>
+              </div> */}
             </Link>
 
             <div className="flex-1 flex justify-center">
