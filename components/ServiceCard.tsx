@@ -20,8 +20,10 @@ export function ServiceCard({ title, description, icon, delay = 0 }: ServiceCard
 
   return (
     <SectionReveal delay={delay}>
-      <div className="group bg-[#1A1235]/60 backdrop-blur-md border border-white/5 rounded-2xl p-8 hover:border-gold/50 hover:-translate-y-1 transition-all duration-300 h-full shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-        <div className="flex flex-col items-center text-center">
+      <div className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 hover:border-gold/40 hover:-translate-y-1 transition-all duration-500 h-full shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        {/* Subtle inner gradient for glass effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative z-10 flex flex-col items-center text-center">
           <div className="flex items-center justify-center space-x-4 mb-6">
             <div className="w-10 h-10 bg-[#3B2571] rounded flex items-center justify-center shadow-inner">
               <Icon className="w-5 h-5 text-gold" strokeWidth={2.5} />

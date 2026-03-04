@@ -9,20 +9,18 @@ import logo from '@/assets/image/ValQuess-logo2.png';
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex items-center px-4 sm:px-6 lg:px-16 pt-20 lg:pt-0">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] -left-32 w-[600px] h-[600px] bg-[#3A2D5E] rounded-full blur-[120px] opacity-50 mix-blend-screen" />
-        <div className="absolute -bottom-20 right-0 w-[700px] h-[700px] bg-[#2D1B54] rounded-full blur-[150px] opacity-40 mix-blend-screen" />
-      </div>
+      {/* Remove previous inline background glows because they are now global in page.tsx */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" />
 
       <div className="relative z-10 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 mt-16 lg:mt-0">
         <SectionReveal delay={75}>
           <div className="text-left w-full lg:w-auto">
             <div className="relative inline-block mb-10 lg:mb-16">
-              <h1 className="text-[80px] sm:text-[100px] lg:text-[140px] xl:text-[180px] font-serif text-white/95 leading-[0.85] tracking-tight">
+              <h1 className="font-bold text-[80px] sm:text-[100px] lg:text-[140px] xl:text-[180px] font-serif text-white/95 leading-[0.85] tracking-tight">
                 Valquess
               </h1>
               <div className="text-right w-full mt-2 lg:mt-3 pr-2 lg:pr-8">
-                <span className="text-xl sm:text-2xl lg:text-[28px] text-gold font-serif font-normal italic tracking-wide">
+                <span className="font-normal text-xl sm:text-2xl lg:text-[28px] text-gold font-serif font-normal italic tracking-wide">
                   your journey, our story
                 </span>
               </div>
@@ -34,15 +32,15 @@ export function Hero() {
             </p>
             <div className="mt-10 lg:mt-14 flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
               <Link href="/booking">
-                <VButton variant="primary" className="!rounded-full flex items-center space-x-2 px-8 py-4 text-lg font-medium shadow-gold-lg group">
+                <VButton variant="primary" className="!rounded-full flex items-center space-x-2 px-8 py-4 text-base font-medium bg-gold text-[#1A112B] hover:bg-gold/90 transition-all">
                   <span>Start Your Journey</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4" />
                 </VButton>
               </Link>
               <Link href="/projects">
-                <VButton variant="outline" className="!rounded-full flex items-center space-x-2 px-8 py-4 text-lg font-medium group">
+                <VButton variant="outline" className="!rounded-full flex items-center space-x-2 px-8 py-4 text-base font-medium border border-gold/40 text-gold hover:bg-gold/10 transition-all">
                   <span>View Our Work</span>
-                  <Layers className="w-5 h-5 group-hover:scale-105 transition-transform" />
+                  <Layers className="w-4 h-4" />
                 </VButton>
               </Link>
             </div>
@@ -50,13 +48,12 @@ export function Hero() {
         </SectionReveal>
 
         <SectionReveal delay={150}>
-          <div className="w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px] xl:w-[750px] xl:h-[750px] flex justify-center items-center lg:-mr-10 xl:-mr-20">
+          <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px] xl:w-[750px] xl:h-[750px] flex justify-center items-center lg:-translate-x-1 xl:-translate-x-28 lg:translate-y-12 xl:translate-y-16">
+            {/* The issue with Hero display was incorrect container widths/nesting or aspect ratio. We explicitly force Image width/height to fill here. */}
             <Image
               src={logo}
               alt={SITE_CONFIG.name}
-              width={875}
-              height={548}
-              className="w-full h-full object-contain drop-shadow-[0_0_60px_rgba(205,170,95,0.15)] scale-110 lg:scale-[1.15]"
+              className="object-contain w-[90%] h-[90%] drop-shadow-[0_0_60px_rgba(205,170,95,0.15)]"
               priority
             />
           </div>

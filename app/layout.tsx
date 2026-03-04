@@ -1,14 +1,18 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Outfit, Cormorant_Garamond } from 'next/font/google';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import Preloader from '@/components/Preloader';
 import { SITE_CONFIG } from '@/lib/constants';
 import logo from '@/assets/image/logo.png';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-cormorant'
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://valquess.com'), // Replace with your actual domain
@@ -37,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
       <body className="font-sans antialiased">
         <Preloader />
         <Navbar />
