@@ -5,8 +5,8 @@ import { SITE_CONFIG, NAV_LINKS, Quick_link, Service_link } from '@/lib/constant
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-gold/20 mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11">
+    <footer className="relative bg-black border-t border-gold/20 mt-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
@@ -66,6 +66,11 @@ export function Footer() {
             {SITE_CONFIG.copyright}
           </p>
         </div>
+      </div>
+
+      {/* Soft spot lighting effect at bottom of footer */}
+      <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pointer-events-none h-32">
+        <div className="w-96 h-32 bg-[radial-gradient(ellipse_90%_70%_at_50%_65%,_#7D52FD4D_0%,_transparent_75%)] rounded-full"></div>
       </div>
     </footer>
   );

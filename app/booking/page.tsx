@@ -120,27 +120,29 @@ export default function BookingPage() {
   };
 
   return (
-    <div className="overflow-hidden">
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <SectionReveal>
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-6">
+    <div 
+      className="flex items-center justify-center py-10 min-h-screen -mt-16 pt-24"
+      style={{
+        background: 'linear-gradient(to bottom, #2C2C84, #0A0A1E, #0A0A1E, #30185E, rgba(73, 33, 136, 0.1))',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="w-full max-w-[1728px] min-h-screen px-2 md:px-8">
+        <section className="text-center mb-8">
+          <SectionReveal threshold={0.1}>
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-4">
               Book a <span className="text-gold">Consultation</span>
             </h1>
           </SectionReveal>
-          <SectionReveal delay={75}>
+          <SectionReveal delay={75} threshold={0.1}>
             <p className="text-lg text-gray-300 leading-relaxed">
-              Schedule a complimentary consultation to discuss your brand vision and explore how we can
-              bring it to life
+Schedule a complimentary consultation to discuss your brand vision and explore how we can bring it to life
             </p>
           </SectionReveal>
-        </div>
-      </section>
-
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <SectionReveal>
-            <div className="bg-black/40 backdrop-blur-sm border border-gold/30 rounded-lg p-6 sm:p-8">
+        </section>
+        <section className="flex justify-center">
+          <SectionReveal threshold={0.1} className="w-full flex justify-center">
+            <div className="w-full max-w-[1166px] min-h-[300px] rounded-[25px] border-2 border-gold/30 bg-gray/40 backdrop-blur-lg shadow-2xl p-[30px] md:p-[50px]">
               {isSubmitted ? (
                 <div className="text-center py-12">
                   <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -153,7 +155,7 @@ export default function BookingPage() {
                     We have automatically scheduled the meeting and sent a Google Calendar invite to <strong>{formData.email}</strong>.
                   </p>
                   <p className="text-gold text-sm mb-6">Please check your email for the Google Meet link and responed  yes .</p>
-                  
+                    
                   <div className="flex flex-col gap-4 justify-center items-center">
                     <button 
                       onClick={() => {
@@ -175,8 +177,8 @@ export default function BookingPage() {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6 md:gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                         <User className="inline w-4 h-4 mr-2" />
@@ -189,11 +191,10 @@ export default function BookingPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 bg-[#ffffff]/[0.07] border border-gold/30 rounded-md text-white backdrop-blur-md shadow-2xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                         placeholder="John Doe"
                       />
                     </div>
-
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                         <Mail className="inline w-4 h-4 mr-2" />
@@ -206,51 +207,67 @@ export default function BookingPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-3 py-2 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                        className="w-full px-4 py-3 bg-[#ffffff]/[0.07] border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
                         placeholder="john@example.com"
                       />
                     </div>
                   </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                      <Phone className="inline w-4 h-4 mr-2" />
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                      placeholder="+1 (555) 123-4567"
-                    />
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                        <Phone className="inline w-4 h-4 mr-2" />
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 bg-white/5 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
+                        placeholder="+1 (555) 123-4567"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
+                        Service Type
+                      </label>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-full px-4 py-3 bg-black/60 border border-gold/30 rounded-md text-white hover:bg-black/60 hover:text-white justify-start text-left font-normal h-auto",
+                              !formData.service && "text-muted-foreground"
+                            )}
+                          >
+                            {formData.service ? formData.service : <span>Select a service</span>}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[300px] p-0" align="start">
+                          <div className="max-h-[200px] overflow-y-auto bg-gray-900 rounded-md">
+                            {services.map((service) => (
+                              <button
+                                key={service}
+                                type="button"
+                                onClick={() => setFormData(prev => ({ ...prev, service }))}
+                                className={cn(
+                                  "w-full px-3 py-2 text-left text-sm text-white hover:bg-gold/20 transition-colors",
+                                  formData.service === service && "bg-gold/10"
+                                )}
+                              >
+                                {service}
+                              </button>
+                            ))}
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                   </div>
 
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                      Service Type
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-3 py-2 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                    >
-                      <option value="">Select a service</option>
-                      {services.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div>
                       <label htmlFor="date" className="block text-sm font-medium text-gray-300 mb-2">
                         <CalendarIcon className="inline w-4 h-4 mr-2" />
@@ -287,30 +304,43 @@ export default function BookingPage() {
                         </PopoverContent>
                       </Popover>
                     </div>
-
                     <div>
                       <label htmlFor="time" className="block text-sm font-medium text-gray-300 mb-2">
                         <Clock className="inline w-4 h-4 mr-2" />
-                        Preferred Time
+                       Time
                       </label>
-                      <select
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
-                      >
-                        <option value="">Select a time</option>
-                        {timeSlots.map((slot) => (
-                          <option key={slot} value={slot}>
-                            {slot}
-                          </option>
-                        ))}
-                      </select>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-full px-4 py-3 bg-black/60 border border-#CDAA5F rounded-md text-white hover:bg-black/60 hover:text-white justify-start text-left font-normal h-auto",
+                              !formData.time && "text-muted-foreground"
+                            )}
+                          >
+                            {formData.time ? formData.time : <span>Select a time</span>}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[200px] p-0" align="start">
+                          <div className="max-h-[200px] overflow-y-auto bg-gray-900 rounded-md">
+                            {timeSlots.map((slot) => (
+                              <button
+                                key={slot}
+                                type="button"
+                                onClick={() => setFormData(prev => ({ ...prev, time: slot }))}
+                                className={cn(
+                                  "w-full px-3 py-2 text-left text-sm text-white hover:bg-gold/20 transition-colors",
+                                  formData.time === slot && "bg-gold/30"
+                                )}
+                              >
+                                {slot}
+                              </button>
+                            ))}
+                          </div>
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </div>
-
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                       <MessageSquare className="inline w-4 h-4 mr-2" />
@@ -322,12 +352,11 @@ export default function BookingPage() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 bg-black/60 border border-gold/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
-                      placeholder="Tell us let your project..."
+                      className="w-full px-4 py-3 bg-[#ffffff]/[0.07] border border-gold/30 backdrop-blur-lg rounded-md text-white focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent resize-none"
+                      placeholder="Tell us about your project..."
                     />
                   </div>
-
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <VButton
                       type="submit"
                       variant="primary"
@@ -341,8 +370,8 @@ export default function BookingPage() {
               )}
             </div>
           </SectionReveal>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }

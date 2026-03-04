@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { VButton } from '@/components/VButton';
 import { Home } from 'lucide-react';
