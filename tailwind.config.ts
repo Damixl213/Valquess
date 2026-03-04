@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
+        sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -121,6 +121,10 @@ const config: Config = {
             transform: 'rotate(360deg)',
           },
         },
+        'marquee': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -129,6 +133,7 @@ const config: Config = {
         'underline-slide': 'underline-slide 0.3s ease-out forwards',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         'spin-slow': 'spin-slow 3s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
       boxShadow: {
         'gold': '0 0 10px rgba(205, 170, 95, 0.4)',
@@ -146,7 +151,7 @@ const config: Config = {
   },
   plugins: [
     require('tailwindcss-animate'),
-    function({ addUtilities }: any) {
+    function ({ addUtilities }: any) {
       const newUtilities = {
         '.rotate-y-6': {
           transform: 'rotateY(6deg)',
