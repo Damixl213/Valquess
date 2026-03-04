@@ -7,10 +7,11 @@ interface SectionRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  threshold?: number;
 }
 
-export function SectionReveal({ children, className, delay = 0 }: SectionRevealProps) {
-  const { ref, isVisible } = useScrollReveal();
+export function SectionReveal({ children, className, delay = 0, threshold }: SectionRevealProps) {
+  const { ref, isVisible } = useScrollReveal(threshold);
 
   return (
     <div
