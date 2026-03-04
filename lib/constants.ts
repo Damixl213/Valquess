@@ -19,7 +19,7 @@ export const Quick_link = [
 ] as const;
 
 export const Service_link = [
- { href: '/about', label: 'About Us' },
+  { href: '/about', label: 'About Us' },
   { href: '/booking', label: 'Booking' },
   { href: '/contact', label: 'Contact' },
 ] as const;
@@ -31,7 +31,7 @@ export const SERVICES = [
     icon: 'target',
   },
   {
-    title: 'Visual Identity',
+    title: 'Visual Design',
     description: 'Logo design, color systems, and brand guidelines',
     icon: 'palette',
   },
