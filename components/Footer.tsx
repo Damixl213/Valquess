@@ -6,14 +6,14 @@ import { SITE_CONFIG, NAV_LINKS, Quick_link, Service_link } from '@/lib/constant
 export function Footer() {
   return (
     <footer className="relative bg-black border-t border-gold/20 mt-16">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <Image 
                 src={logo} 
                 alt={SITE_CONFIG.name} 
-                className="h-24 w-auto object-contain" 
+                className="h-16 w-auto object-contain" 
               />
             </div>
             <p className="text-sm text-gray-400">
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gold/20">
+        <div className="mt-6 pt-6 border-t border-gold/20">
           <p className="text-center text-sm text-gray-500">
             {SITE_CONFIG.copyright}
           </p>
