@@ -89,8 +89,8 @@ export default function BookingPage() {
     setIsSubmitting(true);
 
     try {
-      // REPLACE THIS STRING WITH YOUR COPIED GOOGLE APPS SCRIPT URL
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUWzfGyH47EQsNh8jRs6N0wXyakeUzKCtl3EbYpG6JHa0HPOVhx7cPUxZp-dhEoPBvCg/exec";
+      //ALREADY REPLACE 
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmYmao3CihmruCTwAxCk3S_LpKFx5Z-23EFfiZ8WbthGaPpjtfXsfKytyau98P65wd_Q/exec";
 
       await fetch(SCRIPT_URL, {
         method: "POST",
