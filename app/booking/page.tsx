@@ -90,7 +90,9 @@ export default function BookingPage() {
 
     try {
       //ALREADY REPLACE 
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzLG6V9Y5IsN9sJj6ukPM030X2TmGTuoOEjfY8Hp2MWdnMIY7bXB2jgA8GlDgtyP9KOMg/exec";
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLJffHnHCv-v1jlBqasrD0tENk-dm0XZRUCX-vVev0Egft6ZYNU2zHFLtlSYOa-Q3LYw/exec";
+
+      console.log('Submitting data:', formData); // DEBUG: Check what is being sent
 
       await fetch(SCRIPT_URL, {
         method: "POST",
@@ -101,6 +103,7 @@ export default function BookingPage() {
         body: JSON.stringify(formData),
       });
 
+      console.log('Request sent successfully'); 
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error submitting form", error);
