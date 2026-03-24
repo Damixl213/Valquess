@@ -90,7 +90,9 @@ export default function BookingPage() {
 
     try {
       //ALREADY REPLACE 
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmYmao3CihmruCTwAxCk3S_LpKFx5Z-23EFfiZ8WbthGaPpjtfXsfKytyau98P65wd_Q/exec";
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLJffHnHCv-v1jlBqasrD0tENk-dm0XZRUCX-vVev0Egft6ZYNU2zHFLtlSYOa-Q3LYw/exec";
+
+      console.log('Submitting data:', formData); // DEBUG: Check what is being sent
 
       await fetch(SCRIPT_URL, {
         method: "POST",
@@ -101,6 +103,7 @@ export default function BookingPage() {
         body: JSON.stringify(formData),
       });
 
+      console.log('Request sent successfully'); 
       setIsSubmitted(true);
     } catch (error) {
       console.error("Error submitting form", error);
@@ -294,7 +297,7 @@ Schedule a complimentary consultation to discuss your brand vision and explore h
                             mode="single"
                             selected={formData.date ? new Date(formData.date) : undefined}
                             onSelect={(date) => 
-                              setFormData(prev => ({ ...prev, date: date ? date.toISOString() : '' }))
+                              setFormData(prev => ({ ...prev, date: date ? format(date, "yyyy-MM-dd") : '' }))
                             }
                             disabled={(date) =>
                               date < new Date(new Date().setHours(0, 0, 0, 0))
