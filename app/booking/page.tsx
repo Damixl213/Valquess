@@ -90,7 +90,7 @@ export default function BookingPage() {
 
     try {
       //ALREADY REPLACE 
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmYmao3CihmruCTwAxCk3S_LpKFx5Z-23EFfiZ8WbthGaPpjtfXsfKytyau98P65wd_Q/exec";
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzLG6V9Y5IsN9sJj6ukPM030X2TmGTuoOEjfY8Hp2MWdnMIY7bXB2jgA8GlDgtyP9KOMg/exec";
 
       await fetch(SCRIPT_URL, {
         method: "POST",
@@ -294,7 +294,7 @@ Schedule a complimentary consultation to discuss your brand vision and explore h
                             mode="single"
                             selected={formData.date ? new Date(formData.date) : undefined}
                             onSelect={(date) => 
-                              setFormData(prev => ({ ...prev, date: date ? date.toISOString() : '' }))
+                              setFormData(prev => ({ ...prev, date: date ? format(date, "yyyy-MM-dd") : '' }))
                             }
                             disabled={(date) =>
                               date < new Date(new Date().setHours(0, 0, 0, 0))
