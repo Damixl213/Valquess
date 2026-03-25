@@ -85,34 +85,41 @@ export default function BookingPage() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      //ALREADY REPLACE 
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLJffHnHCv-v1jlBqasrD0tENk-dm0XZRUCX-vVev0Egft6ZYNU2zHFLtlSYOa-Q3LYw/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwCOUWQ00QkgBwxr30xs9e8734Rgh4rDess7hX07Ek59SlSC4oxgPfjyeAQegqdxv9Pw/exec";
 
-      console.log('Submitting data:', formData); // DEBUG: Check what is being sent
+  try {
+    // Create form data
+    const params = new URLSearchParams();
+    params.append('name', formData.name || '');
+    params.append('email', formData.email || '');
+    params.append('phone', formData.phone || '');
+    params.append('service', formData.service || '');
+    params.append('date', formData.date || '');
+    params.append('time', formData.time || '');
+    params.append('message', formData.message || '');
 
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    console.log("Sending:", params.toString());
 
-      console.log('Request sent successfully'); 
-      setIsSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting form", error);
-      alert("There was an error submitting your booking. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+    });
 
+    setIsSubmitted(true);
+
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error submitting. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
