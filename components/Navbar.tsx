@@ -76,14 +76,6 @@ export function Navbar() {
                 })}
               </div>
             </div>
-
-            <div className="flex items-center">
-              <Link href="/contact">
-                <button className="rounded-full bg-white text-black px-6 py-2 text-sm font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                  Contact us
-                </button>
-              </Link>
-            </div>
           </div>
         </div>
       </nav>

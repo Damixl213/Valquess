@@ -17,7 +17,7 @@ export function SectionReveal({ children, className, delay = 0, threshold }: Sec
     <div
       ref={ref}
       className={cn(
-        'transition-all ease-out',
+        'transition-all ease-out bg-gradient-to-b  rounded-lg',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
         className
       )}

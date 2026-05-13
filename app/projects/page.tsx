@@ -66,22 +66,21 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="overflow-hidden">
-      <section className="relative py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <SectionReveal>
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold text-white mb-6">
-              Our <span className="text-gold">Projects</span>
-            </h1>
-          </SectionReveal>
-          <SectionReveal delay={75}>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              A showcase of transformative brand experiences we've crafted for visionary clients across
-              diverse industries
-            </p>
-          </SectionReveal>
-        </div>
-      </section>
+    <div className="bg-projects-gradient min-h-screen w-full -mt-16">
+      <div className="overflow-hidden">
+        <SectionReveal delay={34}>
+          <section className="relative py-12 px-4 sm:px-6 lg:px-8 pt-32">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-4xl sm:text-5xl font-outfit font-bold text-white mb-6">
+                Our <span className="text-gold">Projects</span>
+              </h1>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                A showcase of transformative brand experiences we've crafted for visionary clients across
+                diverse industries
+              </p>
+            </div>
+          </section>
+        </SectionReveal>
 
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -93,19 +92,22 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-black/20">
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-projects-section">
         <div className="max-w-4xl mx-auto text-center">
-          <SectionReveal>
+          <SectionReveal delay={34}>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-6">
               Every Project Tells a Story
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+          </SectionReveal>
+            <SectionReveal delay={120}>
+              <p className="text-lg text-gray-300 leading-relaxed mb-8">
               Each brand we work with receives our full dedication to excellence, strategic thinking, and
               creative innovation. Your success is our passion.
-            </p>
-          </SectionReveal>
+              </p>
+            </SectionReveal>
         </div>
       </section>
+      </div>
     </div>
   );
 }

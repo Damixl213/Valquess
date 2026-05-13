@@ -1,5 +1,6 @@
 import { SectionReveal } from '@/components/SectionReveal';
 import { VButton } from '@/components/VButton';
+import { Services3DCarousel } from '@/components/Services3DCarousel';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Target, Eye, Heart, Award, Linkedin, Twitter, Instagram } from 'lucide-react';
 import Link from 'next/link';
@@ -9,7 +10,6 @@ import TEAM2 from '@/assets/image/team1.jpeg'
 import TEAM3 from '@/assets/image/team2.jpeg'
 import TEAM4 from '@/assets/image/team4.png'
 import TEAM5 from '@/assets/image/team5.png'
-
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -149,8 +149,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-10 px-4 sm:px-6 lg:px-8 bg-black/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto rounded-[36px] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(113,39,193,0.38),rgba(14,10,33,0.98)_68%)] px-5 py-8 shadow-[0_24px_120px_rgba(0,0,0,0.45)] sm:px-8 sm:py-10">
           <SectionReveal>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-8">
               <div>
@@ -164,42 +164,9 @@ export default function AboutPage() {
             </div>
           </SectionReveal>
 
-          <Carousel opts={{ align: 'start', loop: true }} className="relative">
-            <CarouselContent className="pb-6">
-              {services.map((service, index) => (
-                <CarouselItem key={service.title} className="md:basis-1/2 xl:basis-1/3">
-                  <SectionReveal delay={index * 60}>
-                    <div
-                      className={`group h-full rounded-2xl overflow-hidden bg-black/40 backdrop-blur-sm transition-all duration-300 ${
-                        service.framed
-                          ? 'border border-gold/30 shadow-gold/20'
-                          : 'border border-transparent'
-                      } hover:-translate-y-1 hover:border-gold/60`}
-                    >
-                      <div
-                        className={`relative h-40 w-full ${service.framed ? 'rounded-b-none' : ''}`}
-                        style={{
-                          backgroundImage: `linear-gradient(120deg, rgba(0,0,0,0.55), rgba(0,0,0,0.05)), url(${service.image})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        }}
-                      >
-                        {!service.framed && (
-                          <div className="absolute inset-0 ring-1 ring-white/5" aria-hidden />
-                        )}
-                      </div>
-                      <div className="p-5 flex flex-col gap-2">
-                        <h3 className="text-lg font-serif font-semibold text-white">{service.title}</h3>
-                        <p className="text-gray-400 text-xs leading-relaxed">{service.description}</p>
-                      </div>
-                    </div>
-                  </SectionReveal>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex -left-10" />
-            <CarouselNext className="hidden sm:flex -right-10" />
-          </Carousel>
+          <div className="carousel-3d-container">
+            <Services3DCarousel services={services} />
+          </div>
         </div>
       </section>
 

@@ -18,6 +18,9 @@ export interface Project {
   image: string;
   slug: string;
   tags: string[];
+  challenge?: string;
+  solution?: string;
+  results?: string[];
 }
 
 export interface TeamMember {

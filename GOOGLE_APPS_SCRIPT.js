@@ -73,6 +73,77 @@ function doPost(e) {
   }
 }
 
+function doGet(e) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName("Projects");
+
+    if (!sheet) {
+      sheet = ss.getSheets()[0];
+    }
+
+    var values = sheet.getDataRange().getValues();
+
+    if (values.length < 2) {
+      return ContentService.createTextOutput(JSON.stringify({
+        result: 'success',
+        projects: []
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    var headers = values[0].map(function (header) {
+      return String(header).trim();
+    });
+
+    var projects = values.slice(1).filter(function (row) {
+      return row.some(function (cell) {
+        return cell !== '' && cell !== null;
+      });
+    }).map(function (row) {
+      var item = {};
+
+      headers.forEach(function (header, index) {
+        item[header] = row[index];
+      });
+
+      return {
+        id: String(item.id || item.slug || ''),
+        slug: String(item.slug || '').trim(),
+        title: String(item.title || '').trim(),
+        category: String(item.category || '').trim(),
+        description: String(item.description || '').trim(),
+        image: String(item.image || item.imageUrl || '').trim(),
+        tags: String(item.tags || '').split(/[,|]/).map(function (tag) {
+          return tag.trim();
+        }).filter(function (tag) {
+          return tag.length > 0;
+        }),
+        challenge: String(item.challenge || '').trim(),
+        solution: String(item.solution || '').trim(),
+        results: String(item.results || '').split(/[,|]/).map(function (result) {
+          return result.trim();
+        }).filter(function (result) {
+          return result.length > 0;
+        })
+      };
+    }).filter(function (project) {
+      return project.slug && project.title;
+    });
+
+    return ContentService.createTextOutput(JSON.stringify({
+      result: 'success',
+      projects: projects
+    })).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    Logger.log(error);
+    return ContentService.createTextOutput(JSON.stringify({
+      result: 'error',
+      error: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 // OPTIONAL: OPTIONS Handler (Fixes CORS issues sometimes)
 function doOptions(e) {
   var output = ContentService.createTextOutput("");
