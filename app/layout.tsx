@@ -41,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${cormorant.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${outfit.className} ${cormorant.className}`}>
+      <body className="antialiased">
         <Preloader />
         <Navbar />
         <main className="pt-16 md:pt-16 pb-16 md:pb-0 min-h-screen">{children}</main>

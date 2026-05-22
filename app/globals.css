@@ -52,6 +52,17 @@
     animation: showContent 0s ease 14s forwards;
   }
 
+  /* Custom gradients for projects page */
+  .bg-projects-gradient {
+    background: linear-gradient(to bottom, #21183B 0%, #0A0A1E 24%, #0A0A1E 100%);
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .bg-projects-section {
+    background: linear-gradient(to bottom, #0A0A1E, #0A0A1E, #2F175D);
+  }
+
   @keyframes showContent {
     0% {
       pointer-events: none;
